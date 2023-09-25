@@ -3,11 +3,18 @@
 from math import ceil
 
 def median(numbers):
-    try:
-        numbers = sorted([float(value) for value in numbers])
-        length = len(numbers)
-        return (numbers[ceil(length/2-1)]+numbers[length//2])/2
-    except TypeError:
-        print("some input is not number")
+    numbers = sorted(numbers)
+    length = len(numbers)
+    return (numbers[ceil(length/2-1)]+numbers[length//2])/2
 
-print(median([1, 2, 3, 6, 10, 12]))
+while True:
+     try:
+         print("Enter a list of numbers separated by commas: ")
+         numbers = [float(value) for value in input().split(",")]
+     except ValueError:
+         print("Some input could not be converted to a number!")
+     else:
+         break
+
+print(median(numbers))
+
